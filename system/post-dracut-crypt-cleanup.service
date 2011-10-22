@@ -1,0 +1,13 @@
+[Unit]
+Description=Drop shared dracut/systemd auth cache
+DefaultDependencies=no
+After=local-fs.target
+ConditionPathExists=/run/initramfs/.password.cache
+
+[Service]
+Type=oneshot
+ExecStart=/bin/rm -f /run/initramfs/.password.cache
+ExecStartPost=-/bin/systemctl stop post-dracut-crypt.service
+
+[Install]
+WantedBy=default.target

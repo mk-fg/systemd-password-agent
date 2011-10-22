@@ -1,0 +1,15 @@
+[Unit]
+Description=Dispatch password requests to shared dracut/systemd cache
+DefaultDependencies=no
+Conflicts=shutdown.target
+After=plymouth-start.service
+Before=basic.target shutdown.target
+ConditionPathExists=!/run/plymouth/pid
+ConditionPathExists=/run/initramfs/.password.cache
+
+[Path]
+DirectoryNotEmpty=/run/systemd/ask-password
+MakeDirectory=yes
+
+[Install]
+WantedBy=default.target
