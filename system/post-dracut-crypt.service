@@ -1,7 +1,7 @@
 [Unit]
 Description=Try to satisfy password requests from shared dracut/systemd cache
 DefaultDependencies=no
-Conflicts=shutdown.target
+Conflicts=post-dracut-crypt.path shutdown.target
 After=plymouth-start.service
 Before=shutdown.target
 ConditionPathExists=!/run/plymouth/pid
