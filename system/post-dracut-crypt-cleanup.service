@@ -6,7 +6,7 @@ ConditionPathExists=/run/initramfs/.password.cache
 
 [Service]
 Type=oneshot
-ExecStart=/bin/rm -f /run/initramfs/.password.cache
+ExecStart=/usr/local/sbin/systemd_password_cache_cleanup
 ExecStartPost=-/bin/systemctl stop post-dracut-crypt.service
 
 [Install]
