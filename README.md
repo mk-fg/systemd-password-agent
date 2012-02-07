@@ -19,10 +19,10 @@ Usage
 * Override get_pass() function in the script with whatever you need to get the
   password, like:
 
-    def get_pass():
-      cache_path = '/run/initramfs/.password.cache'
-      try: return open(cache_path, 'rb').read().strip()
-      except (OSError, IOError): raise SkipRequest
+        def get_pass():
+          cache_path = '/run/initramfs/.password.cache'
+          try: return open(cache_path, 'rb').read().strip()
+          except (OSError, IOError): raise SkipRequest
 
 * Install .service file to run the thing to some /etc/systemd/system path and
   enable it. Also skim through it and correct paths and requirements maybe.
