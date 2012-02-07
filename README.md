@@ -5,6 +5,9 @@ Honest to $DEITY implementation of the interface in form of python script (for
 ease of hackability), with all the inotify, timestamp, policykit goodies and
 checks.
 
+Needs python2.7 implementation with ctypes support ([vanilla
+cpython](http://python.org/) will do).
+
 
 Usage
 --------------------
