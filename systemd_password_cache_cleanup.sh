@@ -1,5 +1,6 @@
 #!/bin/bash
 umask 077
+chmod 700 /run/initramfs || exit 2
 
 pw_cache=/run/initramfs/.password.cache
 pw_seed=/run/initramfs/.password.seed
