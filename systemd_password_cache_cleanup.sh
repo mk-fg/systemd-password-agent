@@ -50,20 +50,19 @@ update_seed() {
 	return 0
 }
 
-if [[ -f "$pw_seed" && -n "$rsa_info" ]]
-then
+# Do the thing only if dracut has created a seed file
+err=
+[[ -f "$pw_seed" && -n "$rsa_info" ]] && {
 	rsa_src=${rsa_info%/*}
 	rsa_dev=${rsa_src%-*}
 	rsa_offset=${rsa_src#*-}
 	rsa_key=${rsa_info#*/}
+	[[ -z "$err" ]] && process_seed\
+		|| { echo >&2 "Failed to process rsa seed"; err=true; }
+	[[ -z "$err" ]] && update_seed\
+		|| { echo >&2 "Failed to update rsa seed"; err=true; }
+}
 
-	# Foreground because it locks token
-	process_seed || echo >&2 "Failed to process rsa seed"
-	# Backgroud - slow
-	( update_seed || echo >&2 "Failed to update rsa seed"
-		rm -f "$pw_seed" "$pw_cache"{,.old,.new} ) &
-	disown
-else rm -f "$pw_seed" "$pw_cache"{,.old,.new}
-fi
+rm -f "$pw_seed" "$pw_cache"{,.old,.new}
 
-exit 0
+[[ -z "$err" ]] && exit 0 || exit 1
