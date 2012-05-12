@@ -3,14 +3,14 @@ Description=Drop shared dracut/systemd auth cache
 DefaultDependencies=no
 Before=getty@tty1.service getty.target
 After=local-fs.target openct.service
-ConditionPathExists=/run/initramfs/.password.cache
+ConditionPathExists=|/run/initramfs/.password.cache
+ConditionPathExists=|/run/initramfs/.password.seed
 
 [Service]
-Type=forking
-GuessMainPID=false
+Type=oneshot
 RemainAfterExit=true
 ExecStart=/usr/local/sbin/systemd_password_cache_cleanup
-ExecStartPost=-/bin/systemctl stop post-dracut-crypt.service
+ExecStart=/bin/systemctl stop post-dracut-crypt.service
 
 [Install]
 WantedBy=default.target
