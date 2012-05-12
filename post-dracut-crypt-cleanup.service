@@ -1,7 +1,6 @@
 [Unit]
 Description=Drop shared dracut/systemd auth cache
 DefaultDependencies=no
-Before=getty@tty1.service getty.target
 After=local-fs.target openct.service
 ConditionPathExists=|/run/initramfs/.password.cache
 ConditionPathExists=|/run/initramfs/.password.seed
