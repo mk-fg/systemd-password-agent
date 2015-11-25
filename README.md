@@ -2,9 +2,9 @@ systemd-password-agent
 --------------------
 
 **Deprecation Notice:** with "ask-password" caching implemented as of
-systemd-227, there's likely no reason to use this tool, as such in-kernel
-caching seem to be a better alternative, but likely requires systemd running in
-initramfs.
+systemd-227 (2015-10-07), there's likely no reason to use this tool, as such
+in-kernel caching seem to be a better alternative, but likely requires systemd
+running in initramfs.
 
 Python implementation of
 [systemd password agent interface](http://www.freedesktop.org/wiki/Software/systemd/PasswordAgents).
