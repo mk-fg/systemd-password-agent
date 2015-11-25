@@ -1,12 +1,20 @@
-systemd-password-agent: python implementation of [systemd password agent interface](http://www.freedesktop.org/wiki/Software/systemd/PasswordAgents)
+systemd-password-agent
 --------------------
+
+**Deprecation Notice:** with "ask-password" caching implemented as of
+systemd-227, there's likely no reason to use this tool, as such in-kernel
+caching seem to be a better alternative, but likely requires systemd running in
+initramfs.
+
+Python implementation of
+[systemd password agent interface](http://www.freedesktop.org/wiki/Software/systemd/PasswordAgents).
 
 Honest to $DEITY implementation of the interface in form of python script (for
 ease of hackability), with all the inotify, timestamp, policykit goodies and
 checks.
 
-Needs python2.7 implementation with ctypes support ([vanilla
-cpython](http://python.org/) will do).
+Needs python2.7 implementation with ctypes support
+([vanilla cpython](http://python.org/) will do).
 
 
 Usage
