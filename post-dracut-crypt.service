@@ -8,4 +8,4 @@ ConditionPathExists=!/run/plymouth/pid
 ConditionPathExists=/run/initramfs/.password.cache
 
 [Service]
-ExecStart=/usr/local/sbin/systemd_password_cache
+ExecStart=/usr/local/bin/systemd_password_cache

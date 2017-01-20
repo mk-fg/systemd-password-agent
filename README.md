@@ -22,7 +22,7 @@ Usage
 
 * Clone.
 * Copy the py script to some more-or-less stable path (like
-  /usr/local/sbin/systemd_password_cache, just make sure it matches what's in the
+  /usr/local/bin/systemd_password_cache, just make sure it matches what's in the
   .service files).
 * Override get_pass() function in the script with whatever you need to get the
   password, like:
